@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { BasicNews, FeaturedNews } from "@/interfaces/front-news";
-import { newsByCategory } from "@/data/mock-data";
+import { BasicNews } from "@/interfaces/front-news";
 import HeadLine from "@/components/elements/Headline";
+import { CategoryData } from "@/interfaces/page-data";
 
 const TileCard = ({
   href,
@@ -13,7 +13,13 @@ const TileCard = ({
   return (
     <Link href={href} className="hover:text-cyan-700">
       <div className="relative aspect-4/3 col-span-2">
-        <Image src={imageUrl} fill alt={altText} />
+        <Image
+          src={imageUrl}
+          fill
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt={altText}
+        />
       </div>
       <div className="font-semibold col-span-3 mt-4 min-h-[50px]">{title}</div>
     </Link>
@@ -24,18 +30,27 @@ const ThumbnailCard = ({ altText, href, imageUrl, title }: BasicNews) => {
   return (
     <Link href={href} className="flex gap-4 hover:text-cyan-700">
       <div className="relative flex-[0_0_30%] aspect-square">
-        <Image src={imageUrl} fill alt={altText} />
+        <Image
+          src={imageUrl}
+          fill
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt={altText}
+        />
       </div>
       <div className="font-bold text-sm flex-1">{title}</div>
     </Link>
   );
 };
 
-export default function NewsByCategory() {
+export default function NewsByCategory({ data }: { data: CategoryData[] }) {
   return (
     <div className="grid grid-cols-12 gap-x-4 gap-y-12">
-      {newsByCategory.map((cate) => (
-        <div className="col-span-3" key={cate.category.label}>
+      {data.map((cate) => (
+        <div
+          className="col-span-full sm:col-span-6 lg:col-span-3"
+          key={cate.category.label}
+        >
           <Link href={cate.category.link} className="block">
             <HeadLine label={cate.category.label} />
           </Link>

@@ -25,7 +25,7 @@ export default function Videos() {
       <div className="mt-4">
         <div className="grid grid-cols-12 gap-y-4">
           <div className="col-span-8">
-            <VideoEmbed url="https://www.youtube.com/embed/vJcd7rR9_rk" />
+            <VideoEmbed url="https://www.youtube.com/embed/B9VRvOKKwfs" />
           </div>
 
           <div className="col-span-4 bg-gray-500/30 p-4 h-[500px] overflow-y-auto">

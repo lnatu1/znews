@@ -19,7 +19,13 @@ const TileCard = ({
   return (
     <Link href={href} className="hover:text-cyan-700">
       <div className="relative aspect-4/3 col-span-2">
-        <Image src={imageUrl} fill alt={altText} />
+        <Image
+          src={imageUrl}
+          fill
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt={altText}
+        />
       </div>
       <div className="font-semibold col-span-3 mt-4">{title}</div>
     </Link>
@@ -36,7 +42,13 @@ const FeaturedCard = ({
   return (
     <Link href={href} className="flex flex-col gap-4 group">
       <div className="relative aspect-4/3">
-        <Image src={imageUrl} fill alt={altText} />
+        <Image
+          src={imageUrl}
+          fill
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt={altText}
+        />
       </div>
       <div className="text-3xl font-bold group-hover:text-cyan-700">
         {title}
@@ -54,7 +66,13 @@ const ThumbnailCard = ({ altText, href, imageUrl, title }: BasicNews) => {
     <Link href={href} className="flex gap-4 hover:text-cyan-700">
       <div className="font-bold text-sm flex-1">{title}</div>
       <div className="relative flex-[0_0_30%] aspect-square">
-        <Image src={imageUrl} fill alt={altText} />
+        <Image
+          src={imageUrl}
+          fill
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt={altText}
+        />
       </div>
     </Link>
   );
@@ -72,7 +90,7 @@ export default function ThreeColumnNews({
 
       <div className="mt-4">
         <div className="grid grid-cols-12 gap-4">
-          <div className="col-span-6">
+          <div className="col-span-full lg:col-span-6">
             <FeaturedCard
               key={featured.id}
               href={featured.href}
@@ -82,7 +100,7 @@ export default function ThreeColumnNews({
               description={featured.description}
             />
           </div>
-          <div className="col-span-3 flex flex-col gap-4">
+          <div className="col-span-full sm:col-span-6 lg:col-span-3 flex flex-col gap-4">
             {tile.map((news) => (
               <TileCard
                 key={news.id}
@@ -93,7 +111,7 @@ export default function ThreeColumnNews({
               />
             ))}
           </div>
-          <div className="col-span-3 flex flex-col gap-4">
+          <div className="col-span-full sm:col-span-6 lg:col-span-3 flex flex-col gap-4">
             {thumb.map((news) => (
               <ThumbnailCard
                 key={news.id}

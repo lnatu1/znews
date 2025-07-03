@@ -1,4 +1,5 @@
 import { BasicNews, FeaturedNews, Magazine } from "@/interfaces/front-news";
+import { CategoryData } from "@/interfaces/page-data";
 const randomImgUrl = () =>
   `https://picsum.photos/900/600?random=${Math.floor(Math.random() * 1000)}`;
 
@@ -43,6 +44,37 @@ export const navList = [
     name: "Giải trí",
     redirectUrl: "/giai-tri",
   },
+];
+
+export const fullMenu = [
+  { label: "Xuất bản", id: "xuat-ban", link: "/xuat-ban" },
+  { label: "Kinh doanh", id: "kinh-doanh", link: "/kinh-doanh" },
+  { label: "Công nghệ", id: "cong-nghe", link: "/cong-nghe" },
+  { label: "Đời sống", id: "doi-song", link: "/doi-song" },
+  { label: "Tác giả", id: "tac-gia", link: "/tac-gia" },
+  { label: "Sức khỏe", id: "suc-khoe", link: "/suc-khoe" },
+  { label: "Giải trí", id: "giai-tri", link: "/giai-tri" },
+  { label: "Thể thao", id: "the-thao", link: "/the-thao" },
+  { label: "Thế giới sách", id: "the-gioi-sach", link: "/the-gioi-sach" },
+  { label: "Du lịch", id: "du-lich", link: "/du-lich" },
+  { label: "Lifestyle", id: "lifestyle", link: "/lifestyle" },
+  { label: "Xe", id: "xe", link: "/xe" },
+  {
+    label: "Cuốn sách tôi đọc",
+    id: "cuon-sach-toi-doc",
+    link: "/cuon-sach-toi-doc",
+  },
+  { label: "Văn hóa đọc", id: "van-hoa-doc", link: "/van-hoa-doc" },
+  { label: "Xã hội", id: "xa-hoi", link: "/xa-hoi" },
+  { label: "Cải chính", id: "cai-chinh", link: "/cai-chinh" },
+  {
+    label: "Nghiên cứu xuất bản",
+    id: "nghien-cuu-xuat-ban",
+    link: "/nghien-cuu-xuat-ban",
+  },
+  { label: "Pháp luật", id: "phap-luat", link: "/phap-luat" },
+  { label: "Thế giới", id: "the-gioi", link: "/the-gioi" },
+  { label: "Giáo dục", id: "giao-duc", link: "/giao-duc" },
 ];
 
 export const trendingNews = [
@@ -144,70 +176,70 @@ export const frontNews: {
 export const booksNews: BasicNews[] = [
   {
     id: "1",
-    href: "/",
+    href: "/1",
     imageUrl: randomImgUrl(),
     title: "Những cuốn sách thay đổi tư duy quản lý tài chính",
     altText: "Book cover",
   },
   {
     id: "2",
-    href: "/",
+    href: "/2",
     imageUrl: randomImgUrl(),
     title: "5 tựa sách hay về triết lý sống của người Nhật",
     altText: "Book cover",
   },
   {
     id: "3",
-    href: "/",
+    href: "/3",
     imageUrl: randomImgUrl(),
     title: "Tủ sách thiếu nhi: Những câu chuyện cổ tích bất hủ",
     altText: "Book cover",
   },
   {
     id: "4",
-    href: "/",
+    href: "/4",
     imageUrl: randomImgUrl(),
     title: "Top sách kỹ năng mềm giúp bạn thành công trong công việc",
     altText: "Book cover",
   },
   {
     id: "5",
-    href: "/",
+    href: "/5",
     imageUrl: randomImgUrl(),
     title: "Những cuốn tiểu thuyết bán chạy nhất năm 2024",
     altText: "Book cover",
   },
   {
     id: "6",
-    href: "/",
+    href: "/6",
     imageUrl: randomImgUrl(),
     title: "Sách mới ra mắt: Hành trình khám phá bản thân",
     altText: "Book cover",
   },
   {
     id: "7",
-    href: "/",
+    href: "/7",
     imageUrl: randomImgUrl(),
     title: "Tác phẩm văn học Việt Nam nên đọc ít nhất một lần",
     altText: "Book cover",
   },
   {
     id: "8",
-    href: "/",
+    href: "/8",
     imageUrl: randomImgUrl(),
     title: "Sách hướng dẫn học ngoại ngữ nhanh và hiệu quả",
     altText: "Book cover",
   },
   {
     id: "9",
-    href: "/",
+    href: "9/",
     imageUrl: randomImgUrl(),
     title: "Khám phá thế giới qua những cuốn du ký nổi tiếng",
     altText: "Book cover",
   },
   {
     id: "10",
-    href: "/",
+    href: "/10",
     imageUrl: randomImgUrl(),
     title: "Sách nghệ thuật và thiết kế: Cảm hứng sáng tạo",
     altText: "Book cover",
@@ -269,7 +301,7 @@ export const featured: FeaturedNews[] = [
     title: "Máy tính lượng tử: Cuộc cách mạng công nghệ thế kỷ 21",
     altText: "Quantum Computing",
     description:
-      "Máy tính lượng tử đang mở ra một kỷ nguyên mới trong công nghệ thông tin, với khả năng xử lý dữ liệu vượt trội so với máy tính truyền thống. Các tập đoàn lớn như IBM, Google và Microsoft đang đổ hàng tỷ đô la vào nghiên cứu và phát triển công nghệ này. Tiềm năng ứng dụng rất lớn, từ mô phỏng phân tử trong y học, tối ưu hóa logistics, đến bảo mật thông tin và trí tuệ nhân tạo. Mặc dù vẫn còn nhiều thách thức về tính ổn định và chi phí, các chuyên gia dự đoán máy tính lượng tử sẽ thương mại hóa trong thập kỷ tới.",
+      "Máy tính lượng tử mở ra kỷ nguyên mới với khả năng xử lý dữ liệu vượt trội. IBM, Google, Microsoft đầu tư mạnh, ứng dụng trong y học, logistics, bảo mật, AI. Dù còn thách thức, dự kiến thương mại hóa trong thập kỷ tới.",
   },
   {
     id: "feat2",
@@ -278,7 +310,7 @@ export const featured: FeaturedNews[] = [
     title: "Nông nghiệp thẳng đứng: Giải pháp cho an ninh lương thực",
     altText: "Vertical Farming",
     description:
-      "Nông nghiệp thẳng đứng đang trở thành xu hướng nổi bật trong bối cảnh dân số toàn cầu tăng và đất canh tác ngày càng khan hiếm. Công nghệ này cho phép trồng trọt trong không gian đô thị với hiệu suất cao gấp 10-20 lần so với phương pháp truyền thống. Hệ thống LED và hydroponics giúp kiểm soát hoàn toàn môi trường sinh trưởng, giảm 95% lượng nước sử dụng và loại bỏ thuốc trừ sâu. Các thành phố như Singapore, Tokyo đã đầu tư mạnh vào mô hình này để đảm bảo an ninh lương thực bền vững.",
+      "Nông nghiệp thẳng đứng tăng hiệu suất gấp 10-20 lần, tiết kiệm 95% nước, không cần thuốc trừ sâu. Singapore, Tokyo đầu tư mạnh để đảm bảo an ninh lương thực bền vững.",
   },
   {
     id: "feat3",
@@ -287,7 +319,7 @@ export const featured: FeaturedNews[] = [
     title: "Giao diện não-máy tính: Kết nối tâm trí với thế giới số",
     altText: "Brain Computer Interface",
     description:
-      "Công nghệ giao diện não-máy tính (BCI) đang tạo ra những bước đột phá đáng kinh ngạc trong y học và công nghệ. Các nghiên cứu gần đây cho thấy khả năng điều khiển thiết bị điện tử bằng suy nghĩ, giúp người khuyết tật vận động có thể tương tác với máy tính, di chuyển tay robot hoặc thậm chí viết văn bản. Neuralink của Elon Musk đã thử nghiệm thành công trên động vật và bắt đầu thử nghiệm trên người. Ngoài ứng dụng y tế, BCI còn mở ra tiềm năng trong game, giáo dục và giao tiếp, hứa hẹn thay đổi cách con người tương tác với công nghệ.",
+      "BCI cho phép điều khiển thiết bị bằng suy nghĩ, hỗ trợ người khuyết tật và ứng dụng trong game, giáo dục. Neuralink thử nghiệm thành công, hứa hẹn thay đổi tương tác công nghệ.",
   },
   {
     id: "feat4",
@@ -296,7 +328,7 @@ export const featured: FeaturedNews[] = [
     title: "Năng lượng hydro: Nhiên liệu sạch của tương lai",
     altText: "Hydrogen Energy",
     description:
-      "Hydro đang nổi lên như một giải pháp năng lượng quan trọng trong cuộc chuyển đổi xanh toàn cầu. Với ưu điểm không phát thải carbon khi đốt cháy và có thể sản xuất từ nước bằng năng lượng tái tạo, hydro được nhiều quốc gia đầu tư mạnh. Nhật Bản, Đức và Hàn Quốc đang dẫn đầu trong việc phát triển công nghệ pin nhiên liệu hydro cho ô tô, tàu thuyền và máy bay. Thách thức lớn nhất hiện tại là chi phí sản xuất và hạ tầng lưu trữ, vận chuyển. Tuy nhiên, với sự đầu tư không ngừng, hydro hứa hẹn sẽ trở thành trụ cột trong hệ thống năng lượng bền vững.",
+      "Hydro không phát thải carbon, sản xuất từ năng lượng tái tạo. Nhật Bản, Đức, Hàn Quốc dẫn đầu công nghệ pin nhiên liệu. Thách thức là chi phí và hạ tầng lưu trữ, vận chuyển.",
   },
   {
     id: "feat5",
@@ -305,7 +337,7 @@ export const featured: FeaturedNews[] = [
     title: "Sinh đôi số: Mô phỏng thực tế trong thế giới ảo",
     altText: "Digital Twins",
     description:
-      "Công nghệ sinh đôi số (Digital Twins) đang cách mạng hóa cách các doanh nghiệp thiết kế, vận hành và bảo trì sản phẩm. Bằng cách tạo ra bản sao kỹ thuật số chính xác của đối tượng vật lý, các kỹ sư có thể mô phỏng, dự đoán và tối ưu hóa hiệu suất mà không cần can thiệp trực tiếp. Từ động cơ máy bay Boeing đến toàn bộ thành phố thông minh, sinh đôi số giúp giảm chi phí bảo trì, tăng hiệu quả vận hành và dự đoán sự cố trước khi xảy ra. IDC dự báo thị trường sinh đôi số sẽ đạt 73 tỷ đô la vào năm 2027, thu hút đầu tư từ nhiều ngành công nghiệp.",
+      "Sinh đôi số tạo bản sao kỹ thuật số, tối ưu hóa hiệu suất, giảm chi phí bảo trì. Ứng dụng từ máy bay đến thành phố thông minh, thị trường dự kiến đạt 73 tỷ đô la vào 2027.",
   },
   {
     id: "feat6",
@@ -314,7 +346,7 @@ export const featured: FeaturedNews[] = [
     title: "Xe tự lái: Tương lai giao thông thông minh",
     altText: "Autonomous Vehicles",
     description:
-      "Công nghệ xe tự lái đang từng bước hiện thực hóa tầm nhìn về giao thông tự động và an toàn. Các hãng như Tesla, Waymo, và Mercedes-Benz đã triển khai thử nghiệm xe tự lái cấp độ cao trên nhiều tuyến đường. Hệ thống AI kết hợp camera, radar và LiDAR có thể nhận diện môi trường xung quanh tốt hơn con người trong nhiều tình huống. Xe tự lái hứa hẹn giảm 90% tai nạn giao thông do lỗi con người, tối ưu hóa lưu lượng và giảm ô nhiễm không khí. Tuy nhiên, vẫn còn thách thức về luật pháp, đạo đức và công nghệ cần giải quyết trước khi phổ biến rộng rãi.",
+      "Xe tự lái dùng AI, camera, LiDAR giảm 90% tai nạn, tối ưu giao thông, giảm ô nhiễm. Tesla, Waymo dẫn đầu, nhưng vẫn còn thách thức về luật pháp và công nghệ.",
   },
   {
     id: "feat7",
@@ -323,7 +355,7 @@ export const featured: FeaturedNews[] = [
     title: "Chỉnh sửa gen CRISPR: Viết lại bộ mã di truyền",
     altText: "CRISPR Gene Editing",
     description:
-      "Công nghệ chỉnh sửa gen CRISPR-Cas9 đang mở ra kỷ nguyên mới trong y học chính xác và điều trị bệnh di truyền. Với khả năng cắt và chỉnh sửa DNA với độ chính xác cao, CRISPR đã thành công trong điều trị bệnh thiếu máu hồng cầu hình liềm, ung thư máu và nhiều bệnh di truyền khác. Ngoài y học, công nghệ này còn ứng dụng trong nông nghiệp để tạo ra giống cây trồng chống chịu sâu bệnh và biến đổi khí hậu. Mặc dù còn tranh cãi về mặt đạo đức khi chỉnh sửa gen ở phôi thai, CRISPR được kỳ vọng sẽ cứu sống hàng triệu người mắc bệnh hiểm nghèo.",
+      "CRISPR-Cas9 điều trị bệnh di truyền như thiếu máu, ung thư máu, ứng dụng trong nông nghiệp. Dù còn tranh cãi đạo đức, công nghệ này hứa hẹn cứu sống hàng triệu người.",
   },
   {
     id: "feat8",
@@ -332,7 +364,7 @@ export const featured: FeaturedNews[] = [
     title: "Thời trang bền vững: Cách mạng xanh trong ngành may mặc",
     altText: "Sustainable Fashion",
     description:
-      "Ngành thời trang đang trải qua cuộc cách mạng xanh với sự gia tăng của thời trang bền vững và tuần hoàn. Các thương hiệu lớn như H&M, Zara, và Patagonia đầu tư mạnh vào vật liệu tái chế, sợi sinh học và quy trình sản xuất thân thiện môi trường. Công nghệ mới cho phép tạo ra vải từ tảo biển, nấm và thậm chí là protein sữa. Mô hình kinh doanh cho thuê và trao đổi quần áo cũng phát triển mạnh, giúp giảm lãng phí và kéo dài vòng đời sản phẩm. Người tiêu dùng ngày càng ý thức về tác động môi trường, thúc đẩy ngành thời trang hướng tới sự bền vững và minh bạch.",
+      "Thời trang bền vững dùng vật liệu tái chế, sợi sinh học, quy trình thân thiện môi trường. H&M, Patagonia dẫn đầu, giảm lãng phí, thúc đẩy minh bạch và bền vững.",
   },
   {
     id: "feat9",
@@ -341,7 +373,7 @@ export const featured: FeaturedNews[] = [
     title: "Khai thác không gian: Kho báu từ các tiểu hành tinh",
     altText: "Space Mining",
     description:
-      "Khai thác tài nguyên từ không gian không còn là khoa học viễn tưởng mà đang trở thành thực tế với sự đầu tư của các công ty như SpaceX, Blue Origin và Planetary Resources. Các tiểu hành tinh chứa lượng kim loại quý hiếm như platinum, vàng và kim loại đất hiếm trị giá hàng nghìn tỷ đô la. NASA và ESA đã phóng các sứ mệnh khảo sát để thu thập mẫu từ tiểu hành tinh. Việc khai thác tài nguyên ngoài Trái Đất có thể giải quyết tình trạng khan hiếm tài nguyên và mở ra kỷ nguyên mới cho thám hiểm không gian. Tuy nhiên, thách thức về công nghệ, chi phí và luật pháp quốc tế vẫn còn rất lớn.",
+      "Khai thác tiểu hành tinh chứa kim loại quý hiếm trị giá nghìn tỷ đô la. SpaceX, NASA đầu tư, nhưng thách thức về công nghệ và luật pháp quốc tế vẫn lớn.",
   },
   {
     id: "feat10",
@@ -350,7 +382,7 @@ export const featured: FeaturedNews[] = [
     title: "Thịt nuôi cấy: Cuộc cách mạng protein bền vững",
     altText: "Lab Grown Meat",
     description:
-      "Thịt nuôi cấy trong phòng thí nghiệm đang nổi lên như một giải pháp bền vững cho ngành chăn nuôi, giúp giảm khí thải nhà kính và sử dụng đất. Các công ty như Beyond Meat, Impossible Foods và Memphis Meats đã thành công trong việc tạo ra thịt từ tế bào động vật mà không cần giết mổ. Sản phẩm có hương vị và giá trị dinh dưỡng tương tự thịt truyền thống nhưng giảm 96% khí thải carbon và 99% sử dụng đất. Singapore là quốc gia đầu tiên cấp phép bán thịt nuôi cấy thương mại. Mặc dù chi phí sản xuất vẫn cao, dự báo đến 2030 thịt nuôi cấy sẽ cạnh tranh được về giá với thịt truyền thống.",
+      "Thịt nuôi cấy giảm 96% khí thải, 99% sử dụng đất. Singapore cấp phép thương mại. Chi phí còn cao, nhưng dự kiến cạnh tranh với thịt truyền thống vào 2030.",
   },
   {
     id: "feat11",
@@ -359,7 +391,7 @@ export const featured: FeaturedNews[] = [
     title: "Edge Computing: Xử lý dữ liệu tại biên mạng",
     altText: "Edge Computing",
     description:
-      "Edge Computing đang trở thành xu hướng quan trọng trong thời đại IoT và 5G, mang tính toán gần hơn với người dùng và thiết bị. Thay vì gửi tất cả dữ liệu về data center tập trung, edge computing xử lý ngay tại nơi dữ liệu được tạo ra, giảm độ trễ và băng thông mạng. Công nghệ này đặc biệt quan trọng cho xe tự lái, thực tế ảo, và thiết bị y tế thời gian thực. Các ông lớn như Amazon, Microsoft và Google đang đầu tư mạnh vào hạ tầng edge computing. Gartner dự báo đến 2025, 75% dữ liệu doanh nghiệp sẽ được xử lý tại edge thay vì data center truyền thống, mở ra cơ hội kinh doanh khổng lồ.",
+      "Edge Computing xử lý dữ liệu tại nguồn, giảm độ trễ, hỗ trợ IoT, 5G, xe tự lái. Amazon, Google đầu tư mạnh, 75% dữ liệu doanh nghiệp sẽ xử lý tại edge vào 2025.",
   },
   {
     id: "feat12",
@@ -368,7 +400,7 @@ export const featured: FeaturedNews[] = [
     title: "Bảo mật sinh trắc học: Khóa an toàn từ cơ thể con người",
     altText: "Biometric Security",
     description:
-      "Công nghệ bảo mật sinh trắc học đang phát triển vượt bậc với các phương thức nhận diện tiên tiến như võng mạc, tĩnh mạch, tiếng nói và thậm chí là DNA. Apple Face ID và Samsung Knox đã làm quen người dùng với bảo mật khuôn mặt, trong khi các ngân hàng triển khai nhận diện vân tay và giọng nói cho giao dịch trực tuyến. Công nghệ mới như nhận diện nhịp tim và cách đi bộ mở ra khả năng xác thực liên tục mà không làm phiền người dùng. Thị trường bảo mật sinh trắc học dự kiến đạt 68 tỷ đô la vào 2025. Tuy nhiên, vấn đề riêng tư và khả năng bị tấn công vẫn là mối quan tâm lớn cần được giải quyết.",
+      "Bảo mật sinh trắc học dùng võng mạc, tĩnh mạch, giọng nói. Apple, Samsung tiên phong, thị trường đạt 68 tỷ đô la vào 2025. Vấn đề riêng tư và an ninh cần giải quyết.",
   },
   {
     id: "feat13",
@@ -377,7 +409,7 @@ export const featured: FeaturedNews[] = [
     title: "Dọn sạch đại dương: Công nghệ xử lý rác thải nhựa",
     altText: "Ocean Cleanup",
     description:
-      "Các dự án dọn sạch đại dương đang sử dụng công nghệ tiên tiến để giải quyết khủng hoảng ô nhiễm nhựa toàn cầu. The Ocean Cleanup của Boyan Slat đã phát triển hệ thống thu gom nhựa tự động trong Thái Bình Dương, sử dụng dòng hải lưu để tập trung rác thải. Công nghệ AI và vệ tinh giúp xác định và theo dõi các đảo rác thải nhựa. Ngoài ra, enzyme ăn nhựa được phát triển có thể phân hủy PET trong vài giờ thay vì hàng trăm năm. Các robot dưới nước thu gom vi nhựa và drone biển tuần tra các khu vực ô nhiễm. Mặc dù còn nhiều thách thức, các sáng kiến này mang lại hy vọng phục hồi hệ sinh thái biển.",
+      "The Ocean Cleanup thu gom nhựa tự động, AI và vệ tinh theo dõi rác. Enzyme phân hủy nhựa, robot dưới nước hỗ trợ, mang hy vọng phục hồi hệ sinh thái biển.",
   },
   {
     id: "feat14",
@@ -386,7 +418,7 @@ export const featured: FeaturedNews[] = [
     title: "Y học cá nhân hóa: Điều trị theo mã di truyền riêng",
     altText: "Personalized Medicine",
     description:
-      "Y học cá nhân hóa đang cách mạng hóa cách chúng ta tiếp cận điều trị bệnh, dựa trên thông tin di truyền, lối sống và môi trường của từng cá nhân. Công nghệ giải mã gen đã giảm chi phí từ 3 tỷ đô la xuống còn dưới 1000 đô la, cho phép phân tích genome cá nhân để dự đoán nguy cơ bệnh và phản ứng với thuốc. Các công ty như 23andMe và AncestryDNA cung cấp thông tin di truyền tiêu dùng, trong khi các bệnh viện sử dụng AI để phân tích dữ liệu bệnh nhân và đưa ra phác đồ điều trị tối ưu. Liệu pháp CAR-T cho ung thư và thuốc nhắm mục tiêu gen đã cứu sống nhiều bệnh nhân. Y học cá nhân hóa hứa hẹn làm tăng hiệu quả điều trị và giảm tác dụng phụ.",
+      "Y học cá nhân hóa dùng dữ liệu gen, AI tối ưu điều trị. Giải mã gen dưới 1000 đô la, liệu pháp CAR-T cứu bệnh nhân ung thư, tăng hiệu quả, giảm tác dụng phụ.",
   },
   {
     id: "feat15",
@@ -395,10 +427,9 @@ export const featured: FeaturedNews[] = [
     title: "Giao thông hàng không đô thị: Taxi bay trong thành phố",
     altText: "Urban Air Mobility",
     description:
-      "Giao thông hàng không đô thị (UAM) với taxi bay và drone vận chuyển đang dần trở thành hiện thực trong các thành phố lớn. Các công ty như Uber Air, Joby Aviation và Lilium phát triển máy bay điện cất cánh thẳng đứng (eVTOL) có thể vận chuyển hành khách trong thành phố. Singapore, Dubai và Los Angeles đã thử nghiệm các tuyến taxi bay thương mại. Công nghệ này hứa hẹn giảm tắc nghẽn giao thông, rút ngắn thời gian di chuyển và giảm ô nhiễm không khí. Tuy nhiên, thách thức lớn về hạ tầng vertiport, quản lý không lưu, an toàn và tiếng ồn vẫn cần giải quyết. FAA và EASA đang xây dựng quy định cho UAM, dự kiến thương mại hóa vào cuối thập kỷ này.",
+      "Taxi bay eVTOL giảm tắc nghẽn, ô nhiễm. Singapore, Dubai thử nghiệm. Thách thức về hạ tầng, an toàn, quản lý không lưu cần giải quyết trước khi thương mại hóa.",
   },
 ];
-
 export const businessNews: {
   featured: FeaturedNews;
   tile: BasicNews[];
@@ -537,7 +568,7 @@ export const lifestyleNews: {
   ],
 };
 
-export const newsByCategory = [
+export const newsByCategory: CategoryData[] = [
   {
     category: {
       link: "/cong-nghe",
@@ -1186,7 +1217,7 @@ export const videos = [
     category: "Thiên nhiên",
     href: "/video/thien-nhien-4k",
     categoryLink: "/category/thien-nhien",
-    youtube: "https://www.youtube.com/embed/6LT7A_zy5pU", // Nature 4K
+    youtube: "https://www.youtube.com/embed/Nsl5LPka3Nc", // Nature 4K
   },
   {
     id: "v2",
@@ -1194,7 +1225,7 @@ export const videos = [
     category: "Âm nhạc",
     href: "/video/nhac-thu-gian",
     categoryLink: "/category/am-nhac",
-    youtube: "https://www.youtube.com/embed/DWcJFNfaw9c", // Jazz study
+    youtube: "https://www.youtube.com/embed/KLuTLF3x9sA", // Jazz study
   },
   {
     id: "v3",
@@ -1202,7 +1233,7 @@ export const videos = [
     category: "Du lịch",
     href: "/video/diem-den-2024",
     categoryLink: "/category/du-lich",
-    youtube: "https://www.youtube.com/embed/GLWbJ8Z4HkE", // Travel 2024
+    youtube: "https://www.youtube.com/embed/xX533BphQCU", // Travel 2024
   },
   {
     id: "v4",
@@ -1210,7 +1241,7 @@ export const videos = [
     category: "Sức khỏe",
     href: "/video/yoga-5-phut",
     categoryLink: "/category/suc-khoe",
-    youtube: "https://www.youtube.com/embed/v7AYKMP6rOE", // Yoga
+    youtube: "https://www.youtube.com/embed/u_KLmrE_0wM", // Yoga
   },
   {
     id: "v5",
@@ -1218,7 +1249,7 @@ export const videos = [
     category: "Công nghệ",
     href: "/video/tesla-production",
     categoryLink: "/category/cong-nghe",
-    youtube: "https://www.youtube.com/embed/wTjOX5XJqNI", // Tesla
+    youtube: "https://www.youtube.com/embed/c8DHPUrpcgE", // Tesla
   },
   {
     id: "v6",
@@ -1226,7 +1257,7 @@ export const videos = [
     category: "Ẩm thực",
     href: "/video/am-thuc-the-gioi",
     categoryLink: "/category/am-thuc",
-    youtube: "https://www.youtube.com/embed/9tnSx4pSsgY", // Street food
+    youtube: "https://www.youtube.com/embed/hskN1fyOwLE", // Street food
   },
   {
     id: "v7",
@@ -1234,7 +1265,7 @@ export const videos = [
     category: "Khởi nghiệp",
     href: "/video/dong-luc-thanh-cong",
     categoryLink: "/category/khoi-nghiep",
-    youtube: "https://www.youtube.com/embed/fHOEvF2pHIM", // Motivation
+    youtube: "https://www.youtube.com/embed/sb1vAnToddM", // Motivation
   },
   {
     id: "v8",
@@ -1242,7 +1273,7 @@ export const videos = [
     category: "Thể thao",
     href: "/video/bong-da-2023",
     categoryLink: "/category/the-thao",
-    youtube: "https://www.youtube.com/embed/hYbU2lG5Z20", // Soccer goals
+    youtube: "https://www.youtube.com/embed/6owNUyDlHVg", // Soccer goals
   },
   {
     id: "v9",
@@ -1250,7 +1281,7 @@ export const videos = [
     category: "Xe",
     href: "/video/xe-dien-vinfast",
     categoryLink: "/category/xe",
-    youtube: "https://www.youtube.com/embed/X7tHtvhfP0I", // VinFast
+    youtube: "https://www.youtube.com/embed/Mc7XKiNrHQc", // VinFast
   },
   {
     id: "v10",
@@ -1258,6 +1289,6 @@ export const videos = [
     category: "Đời sống",
     href: "/video/doi-song-don-gian",
     categoryLink: "/category/doi-song",
-    youtube: "https://www.youtube.com/embed/4H1Z87ZJXyo", // Life tips
+    youtube: "https://www.youtube.com/embed/1Jbgeo4QuXc", // Life tips
   },
 ];

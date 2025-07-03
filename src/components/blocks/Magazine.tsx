@@ -7,7 +7,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import { Magazine } from "@/interfaces/front-news";
-import { magazine } from "@/data/mock-data";
 import HeadLine from "@/components/elements/Headline";
 
 const MagazineCard = ({ imageUrl, label, link, title }: Magazine) => {
@@ -17,7 +16,14 @@ const MagazineCard = ({ imageUrl, label, link, title }: Magazine) => {
       className="relative block group min-h-[500px] rounded-md overflow-hidden"
     >
       <div className="absolute inset-0 bg-black/50 z-[2]"></div>
-      <Image src={imageUrl} fill alt={label} className="object-cover" />
+      <Image
+        src={imageUrl}
+        fill
+        fill
+        sizes="(max-width: 768px) 100vw, 50vw"
+        alt={label}
+        className="object-cover"
+      />
       <div className="absolute z-[3] left-2/4 -translate-x-2/4 top-0 px-4 py-1 font-bold rounded-b-sm text-xs bg-amber-300">
         {label}
       </div>
@@ -31,7 +37,7 @@ const MagazineCard = ({ imageUrl, label, link, title }: Magazine) => {
   );
 };
 
-export default function MagazineBlock() {
+export default function MagazineBlock({ data }: { data: Magazine[] }) {
   return (
     <>
       <HeadLine label="MAGAZINE" />
@@ -40,13 +46,21 @@ export default function MagazineBlock() {
         <Swiper
           modules={[Navigation]}
           spaceBetween={24}
-          slidesPerView={4}
+          slidesPerView={1}
           navigation={{
             nextEl: ".mz-button-next",
             prevEl: ".mz-button-prev",
           }}
+          breakpoints={{
+            1024: {
+              slidesPerView: 4,
+            },
+            768: {
+              slidesPerView: 2,
+            },
+          }}
         >
-          {magazine.map((mz) => (
+          {data.map((mz) => (
             <SwiperSlide key={mz.id}>
               <MagazineCard {...mz} />
             </SwiperSlide>

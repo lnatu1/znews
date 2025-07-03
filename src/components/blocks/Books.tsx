@@ -6,7 +6,6 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import { BasicNews } from "@/interfaces/front-news";
-import { booksNews } from "@/data/mock-data";
 import HeadLine from "@/components/elements/Headline";
 
 const ThumbnailCard = ({ altText, href, imageUrl, title }: BasicNews) => {
@@ -16,14 +15,20 @@ const ThumbnailCard = ({ altText, href, imageUrl, title }: BasicNews) => {
       className="flex flex-col gap-4 hover:text-cyan-700 border border-black/10 h-full pb-4"
     >
       <div className="relative aspect-4/3">
-        <Image src={imageUrl} fill alt={altText} />
+        <Image
+          src={imageUrl}
+          fill
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt={altText}
+        />
       </div>
       <div className="font-bold text-sm px-4">{title}</div>
     </Link>
   );
 };
 
-export default function Books() {
+export default function Books({ data }: { data: BasicNews[] }) {
   return (
     <>
       <HeadLine label="BOOKS" />
@@ -32,14 +37,22 @@ export default function Books() {
         <Swiper
           modules={[Navigation]}
           spaceBetween={24}
-          slidesPerView={5}
+          slidesPerView={2}
           loop={true}
           navigation={{
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
           }}
+          breakpoints={{
+            992: {
+              slidesPerView: 5,
+            },
+            768: {
+              slidesPerView: 3,
+            },
+          }}
         >
-          {booksNews.map((news) => (
+          {data?.map((news) => (
             <SwiperSlide key={news.id}>
               <ThumbnailCard
                 altText={news.altText}

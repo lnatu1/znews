@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { BasicNews, FeaturedNews } from "@/interfaces/front-news";
-import { multiMedia } from "@/data/mock-data";
+import { MultiMediaData } from "@/interfaces/page-data";
 
 const mediaList = [
   {
@@ -41,7 +41,13 @@ const FeaturedCard = ({
   return (
     <Link href={href} className="flex flex-col gap-4 group">
       <div className="relative aspect-4/3">
-        <Image src={imageUrl} fill alt={altText} />
+        <Image
+          src={imageUrl}
+          fill
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt={altText}
+        />
       </div>
       <div className="text-3xl font-bold group-hover:text-cyan-700">
         {title}
@@ -55,14 +61,20 @@ const ThumbnailCard = ({ altText, href, imageUrl, title }: BasicNews) => {
   return (
     <Link href={href} className="flex flex-col gap-4 hover:text-cyan-700">
       <div className="relative aspect-4/3">
-        <Image src={imageUrl} fill alt={altText} />
+        <Image
+          src={imageUrl}
+          fill
+          fill
+          sizes="(max-width: 768px) 100vw, 50vw"
+          alt={altText}
+        />
       </div>
       <div className="font-bold text-xl">{title}</div>
     </Link>
   );
 };
 
-export default function MultiMedia() {
+export default function MultiMedia({ featured, thumb }: MultiMediaData) {
   return (
     <div>
       <div className="flex gap-x-12 items-center">
@@ -71,7 +83,7 @@ export default function MultiMedia() {
           MULTIMEDIA
         </div>
 
-        <nav>
+        <nav className="hidden md:block">
           <ul className="flex gap-4">
             {mediaList.map((item) => (
               <li key={item.id}>
@@ -88,18 +100,21 @@ export default function MultiMedia() {
       </div>
 
       <div className="grid grid-cols-12 gap-4 mt-4">
-        <div className="col-span-6">
+        <div className="col-span-full md:col-span-6">
           <FeaturedCard
-            altText={multiMedia.featured[0].altText}
-            description={multiMedia.featured[0].description}
-            title={multiMedia.featured[0].title}
-            href={multiMedia.featured[0].href}
-            imageUrl={multiMedia.featured[0].imageUrl}
+            altText={featured[0].altText}
+            description={featured[0].description}
+            title={featured[0].title}
+            href={featured[0].href}
+            imageUrl={featured[0].imageUrl}
           />
         </div>
-        <div className="col-span-6 grid grid-cols-subgrid gap-4">
-          {multiMedia.thumb.map((news) => (
-            <div className="col-span-3" key={news.id}>
+        <div className="col-span-full md:col-span-6 grid grid-cols-subgrid gap-4">
+          {thumb.map((news) => (
+            <div
+              className="col-span-full sm:col-span-6 md:col-span-3"
+              key={news.id}
+            >
               <ThumbnailCard
                 altText={news.altText}
                 title={news.title}
